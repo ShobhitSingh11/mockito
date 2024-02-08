@@ -64,7 +64,7 @@ import org.mockito.internal.hamcrest.HamcrestArgumentMatcher;
  * @since 2.1.0
  */
 public final class MockitoHamcrest {
-
+    // ew
     /**
      * Allows matching arguments with hamcrest matchers.
      * <p/>
