@@ -76,7 +76,13 @@ allprojects { proj ->
         fileMode = Integer.parseInt("0644", 8)
     }
 
-    tasks.withType(Test) {
+    apply plugin: 'checkstyle'
+    checkstyle {
+       configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+    }
+}
+
+tasks.withType(Test) {
        if(System.getProperty("HARNESS_JAVA_AGENT")) {
        jvmArgs += [System.getProperty("HARNESS_JAVA_AGENT")]
       }
@@ -89,12 +95,6 @@ allprojects { proj ->
             }
         }
     }
-
-    apply plugin: 'checkstyle'
-    checkstyle {
-       configFile = rootProject.file('config/checkstyle/checkstyle.xml')
-    }
-}
 
 configurations {
     testUtil //TODO move to separate project
