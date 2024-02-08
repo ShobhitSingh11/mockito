@@ -53,6 +53,7 @@ public class DefaultMockitoFramework implements MockitoFramework {
         if (mockMaker != null) {
             mockMaker.clearAllMocks();
         }
+        // rf
     }
 
     @Override
