@@ -16,6 +16,7 @@ import org.mockito.invocation.DescribedInvocation;
  * </p>
  */
 public interface MethodInvocationReport {
+    // qazED
     /**
      * @return Information on the method call, never {@code null}
      */

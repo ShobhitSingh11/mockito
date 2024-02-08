@@ -35,6 +35,7 @@ public class DefaultMockitoFramework implements MockitoFramework {
     @Override
     public MockitoPlugins getPlugins() {
         return Plugins.getPlugins();
+        // er
     }
 
     @Override
@@ -53,6 +54,7 @@ public class DefaultMockitoFramework implements MockitoFramework {
         if (mockMaker != null) {
             mockMaker.clearAllMocks();
         }
+        // rf
     }
 
     @Override

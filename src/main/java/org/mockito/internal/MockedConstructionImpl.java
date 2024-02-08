@@ -30,6 +30,7 @@ public final class MockedConstructionImpl<T> implements MockedConstruction<T> {
     @Override
     public List<T> constructed() {
         return Collections.unmodifiableList(control.getMocks());
+        // qedewdeferfr
     }
 
     @Override
