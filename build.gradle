@@ -76,6 +76,20 @@ allprojects { proj ->
         fileMode = Integer.parseInt("0644", 8)
     }
 
+    tasks.withType(Test) {
+       if(System.getProperty("HARNESS_JAVA_AGENT")) {
+       jvmArgs += [System.getProperty("HARNESS_JAVA_AGENT")]
+      }
+    }
+
+    gradle.projectsEvaluated {
+        tasks.withType(Test) {
+            filter {
+                setFailOnNoMatchingTests(false)
+            }
+        }
+    }
+
     apply plugin: 'checkstyle'
     checkstyle {
        configFile = rootProject.file('config/checkstyle/checkstyle.xml')
