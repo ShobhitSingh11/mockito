@@ -57,6 +57,21 @@ allprojects { proj ->
         proj.apply from: "$rootDir/gradle/jfr.gradle"
         proj.apply from: "$rootDir/gradle/spotless.gradle"
     }
+
+    tasks.withType(Test) {
+       if(System.getProperty("HARNESS_JAVA_AGENT")) {
+       jvmArgs += [System.getProperty("HARNESS_JAVA_AGENT")]
+      }
+    }
+
+    gradle.projectsEvaluated {
+        tasks.withType(Test) {
+            filter {
+                setFailOnNoMatchingTests(false)
+            }
+        }
+    }
+
     tasks.withType(JavaCompile).configureEach {
         //I don't believe those warnings add value given modern IDEs
         options.warnings = false
@@ -81,20 +96,6 @@ allprojects { proj ->
        configFile = rootProject.file('config/checkstyle/checkstyle.xml')
     }
 }
-
-tasks.withType(Test) {
-       if(System.getProperty("HARNESS_JAVA_AGENT")) {
-       jvmArgs += [System.getProperty("HARNESS_JAVA_AGENT")]
-      }
-    }
-
-    gradle.projectsEvaluated {
-        tasks.withType(Test) {
-            filter {
-                setFailOnNoMatchingTests(false)
-            }
-        }
-    }
 
 configurations {
     testUtil //TODO move to separate project
