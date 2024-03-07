@@ -31,6 +31,7 @@ package org.mockito.stubbing;
  * @see Answer
  */
 public interface Answer2<T, A0, A1> {
+    // rfrefrr43e4fe3fr3ef
     /**
      * @param argument0 the first argument.
      * @param argument1 the second argument.
