@@ -17,7 +17,7 @@ package org.mockito.exceptions.stacktrace;
  * See also the {@linkplain org.mockito.internal.exceptions.stacktrace.DefaultStackTraceCleaner Mockito default implementation}
  */
 public interface StackTraceCleaner {
-     // efred
+     // efreddref
     /**
      * Decides if element is included.
      *
